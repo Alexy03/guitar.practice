@@ -43,6 +43,47 @@ function startPractice() {
     }, 1000);
 }
 
+// Variable to hold the interval ID
+let autoPlayInterval = null;
+
+// Function to generate a random chord
+function generateChord() {
+    // Select a random chord from the list
+    const randomIndex = Math.floor(Math.random() * chords.length);
+    const selectedChord = chords[randomIndex];
+
+    // Update the chord name and image in the HTML
+    document.getElementById("chord-name").innerText = selectedChord.name;
+    document.getElementById("chord-image").src = selectedChord.image;
+
+    // Optionally play the corresponding chord audio
+    playChordAudio(selectedChord.audioId);
+}
+
+// Function to play chord audio
+function playChordAudio(audioId) {
+    const audio = document.getElementById(audioId);
+    if (audio) {
+        audio.play();
+    }
+}
+
+// Function to start auto-play
+function startAutoPlay() {
+    // Prevent multiple intervals from running
+    if (!autoPlayInterval) {
+        autoPlayInterval = setInterval(generateChord, 5000); // Generate a new chord every 5 seconds
+    }
+}
+
+// Function to stop auto-play
+function stopAutoPlay() {
+    if (autoPlayInterval) {
+        clearInterval(autoPlayInterval); // Stop the interval
+        autoPlayInterval = null;
+    }
+}
+
 //audio for the web need to input
 function playChordSound(chord) {
     const audioElement = document.getElementById(`${chord}-audio`);
