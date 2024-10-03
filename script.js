@@ -5,6 +5,7 @@ const chords = {
     "Am": "chords/Am.png",
     "F": "chords/F.png",
     "D": "chords/D.png",
+    "E": "chords/E.png",
     "Em": "chords/Em.png"
 };
 
