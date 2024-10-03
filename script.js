@@ -24,7 +24,7 @@ function randomChord() {
 // Timer functionality
 let countdown;
 function startPractice() {
-    const timeLimit = 30; // 30 seconds for each chord
+    const timeLimit = 5; // 5 seconds for each chord
     document.getElementById("timer").innerText = timeLimit;
     let timeLeft = timeLimit;
 
@@ -50,7 +50,7 @@ let autoPlayInterval = null;
 function generateChord() {
     // Select a random chord from the list
     const randomIndex = Math.floor(Math.random() * chords.length);
-    const selectedChord = chords[randomIndex];
+    const selectedChord = Chords[randomIndex];
 
     // Update the chord name and image in the HTML
     document.getElementById("chord-name").innerText = selectedChord.name;
