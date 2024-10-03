@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guitar Chord Practice</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <h1>Guitar Chord Practice</h1>
+        
+        <!-- Chord Selector -->
+        <div class="chord-selector">
+            <label for="chords">Choose a chord:</label>
+            <select id="chordSelect" onchange="displayChord()">
+                <option value="C">C Major</option>
+                <option value="G">G Major</option>
+                <option value="Am">A Minor</option>
+                <option value="F">F Major</option>
+                <option value="D">D Major</option>
+                <option value="Em">E Minor</option>
+            </select>
+        </div>
+        
+        <!-- Display Chord Image -->
+        <div class="chord-display">
+            <img id="chordImage" src="chords/C.png" alt="Chord Diagram">
+        </div>
+        
+        <!-- Random Chord Button -->
+        <button onclick="randomChord()">Random Chord</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
