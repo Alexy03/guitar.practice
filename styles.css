@@ -1,69 +1,54 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
-
-.app-container {
     text-align: center;
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
 }
 
-.chord-display img {
-    max-width: 300px;
+img {
     margin-top: 20px;
+    width: 200px;
+    height: auto;
 }
 
+.controls {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Button styles */
 button {
     padding: 10px 20px;
-    margin-top: 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
-/* Styling for unique auto-play button */
-.auto-play-button {
-    background-color: #4CAF50; /* Green background */
-    color: white;
-    border: none;
-    padding: 15px 30px;
     font-size: 16px;
+    border: none;
     border-radius: 5px;
     cursor: pointer;
-    position: absolute;
-    left: 20px; /* Position the button on the left side */
-    top: 50px;  /* Adjust the vertical position */
+}
+
+.auto-play-button {
+    background-color: #4CAF50; /* Green */
+    color: white;
 }
 
 .auto-play-button:hover {
-    background-color: #45a049; /* Darker green on hover */
+    background-color: #45a049;
 }
 
-/* Styling for stop button */
 .stop-button {
-    background-color: #f44336; /* Red background */
+    background-color: #f44336; /* Red */
     color: white;
-    border: none;
-    padding: 15px 30px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
 }
 
 .stop-button:hover {
-    background-color: #e53935; /* Darker red on hover */
+    background-color: #e53935;
+}
+
+.practice-button {
+    background-color: #2196F3; /* Blue */
+    color: white;
+}
+
+.practice-button:hover {
+    background-color: #1976D2;
 }
