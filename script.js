@@ -1,67 +1,30 @@
-// Array of available chords and corresponding images
-const chords = {
-    "C": "chords/C.png",
-    "G": "chords/G.png",
-    "Am": "chords/Am.png",
-    "F": "chords/F.png",
-    "D": "chords/D.png",
-    "E": "chords/E.png",
-    "Em": "chords/Em.png"
-};
+// Chord data with names, image paths, and corresponding audio
+const chords = [
+    { name: "C Major", image: "images/C-chord.png", audioId: "C-chord" },
+    { name: "G Major", image: "images/G-chord.png", audioId: "G-chord" },
+    { name: "F Major", image: "images/F-chord.png", audioId: "F-chord" },
+    { name: "D Major", image: "images/D-chord.png", audioId: "D-chord" },
+    { name: "A Minor", image: "images/Am-chord.png", audioId: "Am-chord" }
+];
 
-// Display the selected chord
-function displayChord() {
-    const chord = document.getElementById("chordSelect").value;
-    document.getElementById("chordImage").src = chords[chord];
-}
-
-// Choose a random chord and display it
-function randomChord() {
-    const chordKeys = Object.keys(chords);
-    const randomChord = chordKeys[Math.floor(Math.random() * chordKeys.length)];
-    document.getElementById("chordSelect").value = randomChord;
-    displayChord();
-}
-// Timer functionality
-let countdown;
-function startPractice() {
-    const timeLimit = 5; // 5 seconds for each chord
-    document.getElementById("timer").innerText = timeLimit;
-    let timeLeft = timeLimit;
-
-    // Reset countdown if already running
-    if (countdown) clearInterval(countdown);
-
-    // Set a new chord every 30 seconds
-    countdown = setInterval(() => {
-        timeLeft--;
-        document.getElementById("timer").innerText = timeLeft;
-
-        if (timeLeft === 0) {
-            randomChord(); // Show a random chord
-            timeLeft = timeLimit; // Reset the timer
-        }
-    }, 1000);
-}
-
-// Variable to hold the interval ID
+// Auto-play interval reference
 let autoPlayInterval = null;
 
-// Function to generate a random chord
+// Function to generate and display a random chord
 function generateChord() {
-    // Select a random chord from the list
     const randomIndex = Math.floor(Math.random() * chords.length);
-    const selectedChord = Chords[randomIndex];
+    const selectedChord = chords[randomIndex];
 
-    // Update the chord name and image in the HTML
+    // Update HTML elements
     document.getElementById("chord-name").innerText = selectedChord.name;
     document.getElementById("chord-image").src = selectedChord.image;
+    document.getElementById("chord-image").style.display = 'block';
 
-    // Optionally play the corresponding chord audio
+    // Play corresponding audio
     playChordAudio(selectedChord.audioId);
 }
 
-// Function to play chord audio
+// Play the chord audio
 function playChordAudio(audioId) {
     const audio = document.getElementById(audioId);
     if (audio) {
@@ -69,38 +32,23 @@ function playChordAudio(audioId) {
     }
 }
 
-// Function to start auto-play
+// Start the auto-play feature
 function startAutoPlay() {
-    // Prevent multiple intervals from running
     if (!autoPlayInterval) {
-        autoPlayInterval = setInterval(generateChord, 5000); // Generate a new chord every 5 seconds
+        autoPlayInterval = setInterval(generateChord, 5000); // Change chord every 5 seconds
     }
 }
 
-// Function to stop auto-play
+// Stop the auto-play
 function stopAutoPlay() {
     if (autoPlayInterval) {
-        clearInterval(autoPlayInterval); // Stop the interval
+        clearInterval(autoPlayInterval);
         autoPlayInterval = null;
     }
 }
 
-//audio for the web need to input
-function playChordSound(chord) {
-    const audioElement = document.getElementById(`${chord}-audio`);
-    audioElement.play();
+// Practice mode: Generate a single random chord
+function startPracticeMode() {
+    stopAutoPlay();
+    generateChord();
 }
-
-function displayChord() {
-    const chord = document.getElementById("chordSelect").value;
-    document.getElementById("chordImage").src = chords[chord];
-    playChordSound(chord); // Play the sound for the selected chord
-}
-
-function randomChord() {
-    const chordKeys = Object.keys(chords);
-    const randomChord = chordKeys[Math.floor(Math.random() * chordKeys.length)];
-    document.getElementById("chordSelect").value = randomChord;
-    displayChord();
-}
-
