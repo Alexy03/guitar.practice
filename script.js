@@ -1,10 +1,13 @@
 // Chord data with names, image paths, and corresponding audio
 const chords = [
-    { name: "C Major", image: "images/C-chord.png", audioId: "C-chord" },
-    { name: "G Major", image: "images/G-chord.png", audioId: "G-chord" },
-    { name: "F Major", image: "images/F-chord.png", audioId: "F-chord" },
-    { name: "D Major", image: "images/D-chord.png", audioId: "D-chord" },
-    { name: "A Minor", image: "images/Am-chord.png", audioId: "Am-chord" }
+   { name: "C Major", image: "chords/C.png", audioId: "C-audio" },
+    { name: "D Major", image: "chords/D.png", audioId: "D-audio" },
+    { name: "E Major", image: "chords/E.png", audioId: "E-audio" },
+    { name: "Em Minor", image: "chords/Em.png", audioId: "Em-audio" },
+    { name: "F Major", image: "chords/F.png", audioId: "F-audio" },
+    { name: "G Major", image: "chords/G.png", audioId: "G-audio" },
+    { name: "A Major", image: "chords/A.png", audioId: "A-audio" },
+    { name: "Am Minor", image: "chords/Am.png", audioId: "Am-audio" }
 ];
 
 // Auto-play interval reference
