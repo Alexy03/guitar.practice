@@ -16,9 +16,11 @@ function generateChord() {
     const selectedChord = chords[randomIndex];
 
     // Update HTML elements
-    document.getElementById("chord-name").innerText = selectedChord.name;
-    document.getElementById("chord-image").src = selectedChord.image;
-    document.getElementById("chord-image").style.display = 'block';
+  document.getElementById("chord-name").innerText = selectedChord.name;
+    const chordImageElement = document.getElementById("chordImage");
+    chordImageElement.src = selectedChord.image;
+    chordImageElement.style.display = 'block';
+
 
     // Play corresponding audio
     playChordAudio(selectedChord.audioId);
